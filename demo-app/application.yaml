@@ -9,11 +9,11 @@ spec:
   source:
     repoURL: https://github.com/ajithshah/k8s-agent.git
     targetRevision: HEAD
-    path: .
+    path: ./demo-app
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: kube-system
 
   syncPolicy:
     automated:
