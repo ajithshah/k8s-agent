@@ -19,7 +19,7 @@ spec:
       - command:
         - sleep
         - infinity
-        image: ubuntu:latest
+        image: ubuntua:latest
         name: nginx
         resources:
           limits:
