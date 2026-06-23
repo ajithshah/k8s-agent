@@ -17,8 +17,9 @@ spec:
     spec:
       containers:
       - command:
-        - sleep
-        - infinity
+        - /bin/bash
+        - -c
+        - "python3 -c 'x = bytearray(230 * 1024 * 1024); import time; time.sleep(86400)'"
         image: ubuntu:latest
         name: nginx
         resources:
