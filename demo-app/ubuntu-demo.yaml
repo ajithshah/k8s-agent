@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app.kubernetes.io/instance: ubuntu-app
-  name: ubuntu-demo
+    app.kubernetes.io/instance: nginx-app
+  name: nginx-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ubuntu-demo
+      app: nginx-app
   template:
     metadata:
       labels:
-        app: ubuntu-demo
-        app.kubernetes.io/instance: ubuntu-app
+        app: nginx-app
+        app.kubernetes.io/instance: nginx-app
     spec:
       containers:
       - image: ubuntu:latest
-        name: ubuntu
+        name: nginx
         resources:
           requests:
             cpu: 100m
@@ -29,12 +29,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ubuntu-service
+  name: nginx-service
   labels:
-    app.kubernetes.io/instance: ubuntu-app
+    app.kubernetes.io/instance: nginx-app
 spec:
   selector:
-    app: ubuntu-demo
+    app: nginx-app
   ports:
   - port: 80
     targetPort: 80
