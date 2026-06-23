@@ -16,7 +16,7 @@ spec:
         app.kubernetes.io/instance: nginx-app
     spec:
       containers:
-      - image: ubuntu:latest
+      - image: ubuntua:latest
         name: nginx
         command: ["sleep", "infinity"]
         resources:
