@@ -16,16 +16,18 @@ spec:
         app.kubernetes.io/instance: nginx-app
     spec:
       containers:
-      - image: ubuntua:latest
+      - command:
+        - sleep
+        - infinity
+        image: ubuntu:latest
         name: nginx
-        command: ["sleep", "infinity"]
         resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
           limits:
             cpu: 250m
             memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
 ---
 apiVersion: v1
 kind: Service
