@@ -2,34 +2,34 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app.kubernetes.io/instance: nginx-app
-  name: nginx-demo
+    app.kubernetes.io/instance: ubuntu-app
+  name: ubuntu-demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx-demo
+      app: ubuntu-demo
   template:
     metadata:
       labels:
-        app: nginx-demo
-        app.kubernetes.io/instance: nginx-app
+        app: ubuntu-demo
+        app.kubernetes.io/instance: ubuntu-app
     spec:
       containers:
-      - image: nginx:latest
-        name: nginx
+      - image: ubuntu:latest
+        name: ubuntu
         ports:
         - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  name: ubuntu-service
   labels:
-    app.kubernetes.io/instance: nginx-app
+    app.kubernetes.io/instance: ubuntu-app
 spec:
   selector:
-    app: nginx-demo
+    app: ubuntu-demo
   ports:
   - port: 80
     targetPort: 80
