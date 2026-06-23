@@ -18,6 +18,7 @@ spec:
       containers:
       - image: ubuntu:latest
         name: nginx
+        command: ["sleep", "infinity"]
         resources:
           requests:
             cpu: 100m
