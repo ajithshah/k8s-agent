@@ -21,23 +21,9 @@ spec:
         ports:
         - containerPort: 80
         resources:
+          limits:
+            cpu: 250m
+            memory: 320Mi
           requests:
             cpu: 100m
             memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: ubuntu-service
-  labels:
-    app.kubernetes.io/instance: ubuntu-app
-spec:
-  selector:
-    app: ubuntu-demo
-  ports:
-  - port: 80
-    targetPort: 80
-  type: ClusterIP
