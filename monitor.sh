@@ -46,20 +46,23 @@ get_cpu() {
   fi
 }
 
-# Accumulate memory by growing a bash variable ~20MB per iteration
-pressure=""
-iter=0
+# Background: allocate 10MB every 5 seconds
+allocate_memory() {
+  data=""
+  while true; do
+    data="${data}$(head -c 10485760 /dev/zero | tr '\0' 'A')"
+    sleep 5
+  done
+}
+allocate_memory &
 
+# Foreground: print logs every 3 seconds
 while true; do
-  iter=$((iter + 1))
-  echo "=== $(date) === [iteration $iter]"
+  echo "=== $(date) ==="
   echo "-- Memory --"
   get_mem
   echo "-- CPU --"
   get_cpu
-
-  # Grow pressure by ~20MB — bash holds this string in process memory
-  pressure="${pressure}$(head -c 20971520 /dev/zero | tr '\0' 'A')"
-  echo "Allocated pressure: $((iter * 20)) MB"
   echo ""
+  sleep 2
 done
