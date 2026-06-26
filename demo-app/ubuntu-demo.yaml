@@ -16,12 +16,8 @@ spec:
         app.kubernetes.io/instance: nginx-app
     spec:
       containers:
-      - command:
-        - /bin/bash
-        - -c
-        - "sleep infinity"
-        image: ubuntu:latest
-        name: nginx
+      - image: ajithshah/k8s-agent:latest
+        name: monitor
         resources:
           limits:
             cpu: 250m
