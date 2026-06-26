@@ -16,10 +16,10 @@ spec:
         app.kubernetes.io/instance: nginx-app
     spec:
       containers:
-      - command:
-        - /bin/bash
-        - -c
-        - "python3 -c 'x = bytearray(512 * 1024 * 1024)'"
+      # - command:
+      #   - /bin/bash
+      #   - -c
+      #   - "python3 -c 'x = bytearray(512 * 1024 * 1024)'"
         image: ubuntu:latest
         name: nginx
         resources:
