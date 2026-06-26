@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/instance: nginx-app
   name: nginx-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: nginx-app
