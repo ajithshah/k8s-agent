@@ -19,16 +19,16 @@ spec:
       - command:
         - /bin/bash
         - -c
-        - "cat /dev/zero | head -c 800m | tail"
+        - "sleep infinity"
         image: ubuntu:latest
         name: nginx
         resources:
           limits:
-            cpu: 100m
-            memory: 1280Mi
+            cpu: 250m
+            memory: 320Mi
           requests:
-            cpu: 50m
-            memory: 32Mi
+            cpu: 100m
+            memory: 128Mi
 ---
 apiVersion: v1
 kind: Service
