@@ -16,7 +16,7 @@ spec:
         app.kubernetes.io/instance: nginx-app
     spec:
       containers:
-      - image: ajithshah/k8s-agent:lates
+      - image: ajithshah/k8s-agent:latest
         imagePullPolicy: Always
         name: monitor
         resources:
