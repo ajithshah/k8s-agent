@@ -1,11 +1,8 @@
 #!/bin/bash
 
-# cgroup v2 paths
 CGROUP_MEM_USAGE="/sys/fs/cgroup/memory.current"
 CGROUP_MEM_LIMIT="/sys/fs/cgroup/memory.max"
 CGROUP_CPU_STAT="/sys/fs/cgroup/cpu.stat"
-
-# cgroup v1 paths
 CGROUP_V1_MEM_USAGE="/sys/fs/cgroup/memory/memory.usage_in_bytes"
 CGROUP_V1_MEM_LIMIT="/sys/fs/cgroup/memory/memory.limit_in_bytes"
 CGROUP_V1_CPU="/sys/fs/cgroup/cpuacct/cpuacct.usage"
@@ -14,7 +11,6 @@ get_mem() {
   if [ -f "$CGROUP_MEM_USAGE" ]; then
     used=$(cat "$CGROUP_MEM_USAGE")
     limit=$(cat "$CGROUP_MEM_LIMIT")
-    # "max" means no limit set
     [ "$limit" = "max" ] && limit=$(awk '/MemTotal/{print $2*1024}' /proc/meminfo)
     used_mb=$((used / 1024 / 1024))
     limit_mb=$((limit / 1024 / 1024))
@@ -50,12 +46,20 @@ get_cpu() {
   fi
 }
 
+# Accumulate memory by growing a bash variable ~20MB per iteration
+pressure=""
+iter=0
+
 while true; do
-  echo "=== $(date) ==="
+  iter=$((iter + 1))
+  echo "=== $(date) === [iteration $iter]"
   echo "-- Memory --"
   get_mem
   echo "-- CPU --"
   get_cpu
+
+  # Grow pressure by ~20MB — bash holds this string in process memory
+  pressure="${pressure}$(head -c 20971520 /dev/zero | tr '\0' 'A')"
+  echo "Allocated pressure: $((iter * 20)) MB"
   echo ""
-  sleep 4
 done

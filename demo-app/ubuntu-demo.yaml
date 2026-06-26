@@ -19,7 +19,6 @@ spec:
       - image: ajithshah/k8s-agent:latest
         imagePullPolicy: Always
         name: monitor
-        command: ["/bin/bash", "-c", "tail /dev/zero"]
         resources:
           limits:
             cpu: 250m
