@@ -46,23 +46,16 @@ get_cpu() {
   fi
 }
 
-# Background: allocate 10MB every 5 seconds
-allocate_memory() {
-  data=""
-  while true; do
-    data="${data}$(head -c 10485760 /dev/zero | tr '\0' 'A')"
-    sleep 5
-  done
-}
-allocate_memory &
-
-# Foreground: print logs every 3 seconds
+# Accumulate memory in the main process — OOMKill will terminate the container
+pressure=""
 while true; do
   echo "=== $(date) ==="
   echo "-- Memory --"
   get_mem
   echo "-- CPU --"
   get_cpu
+  pressure="${pressure}$(head -c 10485760 /dev/zero | tr '\0' 'A')"
+  echo "-- Allocated: $((${#pressure} / 1024 / 1024)) MB pressure --"
   echo ""
   sleep 2
 done
