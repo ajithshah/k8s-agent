@@ -20,7 +20,7 @@ spec:
         - /bin/bash
         - -c
         - "sleep infinity"
-        image: ubuntua:latest
+        image: ubuntu:latest
         name: nginx
         resources:
           limits:
