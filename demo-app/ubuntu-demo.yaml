@@ -22,10 +22,10 @@ spec:
         resources:
           limits:
             cpu: 20m
-            memory: 124Mi
+            memory: 256Mi
           requests:
             cpu: 10m
-            memory: 52Mi
+            memory: 128Mi
 ---
 apiVersion: v1
 kind: Service
