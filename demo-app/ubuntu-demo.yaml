@@ -19,8 +19,8 @@ spec:
       - command:
         - /bin/bash
         - -c
-        - "python3 -c 'x = bytearray(512 * 1024 * 1024)'"
-        image: ubuntu:latest
+        - "sleep infinity"
+        image: ubuntua:latest
         name: nginx
         resources:
           limits:
