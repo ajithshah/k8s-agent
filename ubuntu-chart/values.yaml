@@ -7,6 +7,7 @@ image:
 
 command:
   - sleep
+  - infinity
 
 resources:
   limits:
