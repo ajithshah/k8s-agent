@@ -2,6 +2,7 @@ replicaCount: 1
 
 image:
   repository: ubuntu
+  tag: latest
   pullPolicy: Always
 
 command:
