@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ubuntua
+  repository: ubuntu
   tag: latest
   pullPolicy: Always
 
