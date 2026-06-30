@@ -13,12 +13,12 @@ command:
 resources:
   limits:
     cpu: 20m
-    memory: 256Mi
+    memory: 124Mi
   requests:
     cpu: 10m
     memory: 16Mi
 
 service:
   type: ClusterIP
-  port: 8080
-  targetPort: 8080
+  port: 80
+  targetPort: 80
