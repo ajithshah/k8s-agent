@@ -6,16 +6,17 @@ image:
   pullPolicy: Always
 
 command:
-- sleep
-- infinity
+- /bin/bash
+- -c
+- "x=$(head -c 200M /dev/urandom); echo done"
 
 resources:
   limits:
     cpu: 20m
-    memory: 256Mi
+    memory: 32Mi
   requests:
     cpu: 10m
-    memory: 128Mi
+    memory: 16Mi
 
 service:
   type: ClusterIP
