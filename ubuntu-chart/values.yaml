@@ -1,22 +1,18 @@
-replicaCount: 1
-
+command:
+- sleep
 image:
+  pullPolicy: Always
   repository: ubuntu
   tag: latest
-  pullPolicy: Always
-
-command:
-  - sleep
-
+replicaCount: 1
 resources:
   limits:
     cpu: 20m
-    memory: 256Mi
+    memory: 512Mi
   requests:
     cpu: 10m
-    memory: 128Mi
-
+    memory: 256Mi
 service:
-  type: ClusterIP
   port: 80
   targetPort: 80
+  type: ClusterIP
