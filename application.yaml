@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/ajithshah/k8s-agent.git
     targetRevision: HEAD
-    path: ./demo-app
+    path: ./ubuntu-chart
 
   destination:
     server: https://kubernetes.default.svc
