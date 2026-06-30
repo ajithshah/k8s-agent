@@ -12,7 +12,7 @@ command:
 resources:
   limits:
     cpu: 20m
-    memory: 2Mi
+    memory: 124Mi
   requests:
     cpu: 10m
     memory: 1Mi
