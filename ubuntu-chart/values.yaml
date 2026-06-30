@@ -6,7 +6,8 @@ image:
   pullPolicy: Always
 
 command:
-  - sleep
+- sleep
+- infinity
 
 resources:
   limits:
