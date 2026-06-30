@@ -6,9 +6,8 @@ image:
   pullPolicy: Always
 
 command:
-- /bin/bash
-- -c
-- "x=$(head -c 200M /dev/urandom); echo done"
+- sleep
+- infinity
 
 resources:
   limits:
