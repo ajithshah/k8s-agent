@@ -12,10 +12,10 @@ command:
 resources:
   limits:
     cpu: 20m
-    memory: 124Mi
+    memory: 2Mi
   requests:
     cpu: 10m
-    memory: 16Mi
+    memory: 1Mi
 
 service:
   type: ClusterIP
