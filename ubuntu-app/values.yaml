@@ -14,7 +14,8 @@ resources:
     memory: 32Mi
 
 command:
-  - sleep
+- sleep
+- infinity
 
 service:
   type: ClusterIP
