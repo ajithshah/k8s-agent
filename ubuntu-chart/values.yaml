@@ -6,8 +6,9 @@ image:
   pullPolicy: Always
 
 command:
-- sleep
-- infinity
+- /bin/bash
+- -c
+- "exit 1"
 
 resources:
   limits:
