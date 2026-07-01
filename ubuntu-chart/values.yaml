@@ -5,10 +5,7 @@ image:
   tag: latest
   pullPolicy: Always
 
-command:
-- /bin/bash
-- -c
-- "exit 1"
+command: null
 
 resources:
   limits:
