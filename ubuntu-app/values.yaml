@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: ubunt
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -13,6 +13,10 @@ resources:
     cpu: 20m
     memory: 32Mi
 
+command:
+  - sleep
+  - infinity
+  
 service:
   type: ClusterIP
   port: 80
