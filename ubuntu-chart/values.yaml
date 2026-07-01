@@ -5,6 +5,10 @@ image:
   tag: latest
   pullPolicy: Always
 
+command:
+- sleep
+- infinity
+
 resources:
   limits:
     cpu: 20m
@@ -17,7 +21,3 @@ service:
   type: ClusterIP
   port: 80
   targetPort: 80
-
-containerCommand:
-- sleep
-- infinity
