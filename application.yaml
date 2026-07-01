@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-app
+  name: ubuntu-app
   namespace: argo
 spec:
   project: default
@@ -13,7 +13,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: dev
 
   syncPolicy:
     automated:
@@ -39,7 +39,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: dev
 
   syncPolicy:
     automated:
