@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: ubuntu
-  tag: 99.99-invalid
+  tag: latest
   pullPolicy: Always
 
 command:
