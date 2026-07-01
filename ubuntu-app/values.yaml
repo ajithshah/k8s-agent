@@ -16,7 +16,7 @@ resources:
 command:
   - sleep
   - infinity
-  
+
 service:
   type: ClusterIP
   port: 80
