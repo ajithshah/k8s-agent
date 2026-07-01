@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ubunt
+  repository: ubuntu
   tag: latest
   pullPolicy: IfNotPresent
 
