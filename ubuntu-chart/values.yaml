@@ -5,7 +5,9 @@ image:
   tag: latest
   pullPolicy: Always
 
-command: null
+command:
+- sleep
+- infinity
 
 resources:
   limits:
