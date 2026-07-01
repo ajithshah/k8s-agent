@@ -5,10 +5,6 @@ image:
   tag: latest
   pullPolicy: Always
 
-command:
-- sleep
-- infinity
-
 resources:
   limits:
     cpu: 20m
