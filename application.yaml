@@ -33,7 +33,7 @@ spec:
   source:
     repoURL: https://github.com/ajithshah/k8s-agent.git
     targetRevision: HEAD
-    path: ./ubuntu-app
+    path: ./ubuntu-app-2
 
   destination:
     server: https://kubernetes.default.svc
