@@ -20,9 +20,8 @@ resources:
     memory: 32Mi
 
 command:
-- /bin/sh
-- -c
-- "while true; do :; done"
+- sleep
+- infinity
 
 service:
   type: ClusterIP
