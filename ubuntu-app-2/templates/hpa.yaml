@@ -17,4 +17,13 @@ spec:
         target:
           type: Utilization
           averageUtilization: {{ .Values.hpa.targetCPUUtilizationPercentage }}
+  {{- if .Values.hpa.behavior }}
+  behavior:
+    {{- if .Values.hpa.behavior.scaleDown }}
+    scaleDown:
+      stabilizationWindowSeconds: {{ .Values.hpa.behavior.scaleDown.stabilizationWindowSeconds }}
+      policies:
+        {{- toYaml .Values.hpa.behavior.scaleDown.policies | nindent 8 }}
+    {{- end }}
+  {{- end }}
 {{- end }}
