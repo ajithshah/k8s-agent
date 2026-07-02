@@ -15,7 +15,7 @@ resources:
 
 command:
 - sleep
-# - infinity
+- infinity
 
 service:
   type: ClusterIP
