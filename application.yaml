@@ -21,3 +21,27 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ubuntu-app-test
+  namespace: argo
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/ajithshah/k8s-agent.git
+    targetRevision: HEAD
+    path: ./ubuntu-app
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: test
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
